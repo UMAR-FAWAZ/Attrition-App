@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-# configure pages 
+# configure Home page
 st.set_page_config(
     page_title= 'Home',
     page_icon=':)',

@@ -1,3 +1,4 @@
+# # import all necessary packages
 import streamlit as st 
 import pyodbc
 import pandas as pd
@@ -5,6 +6,7 @@ import os
 from dotenv import load_dotenv
 from dotenv import dotenv_values
 
+# configure Data page
 st.set_page_config(
     page_title= 'View Data',
     page_icon=':)',
@@ -15,6 +17,8 @@ st.markdown(
         unsafe_allow_html=True,
 )
 
+
+st.header('SQL server Data')
 # Get data from remote Database 
 
 # Load environment variables from .env file 
@@ -39,3 +43,17 @@ results = pd.read_sql(query, connection)
 
 #display the results in streamlit 
 st.dataframe(results)
+
+
+
+st.header('GitHub Data ')
+# # Get data from Github repo
+
+# Provide the link to the raw content of the CSV file on GitHub
+github_url = "https://raw.githubusercontent.com/Azubi-Africa/Career_Accelerator_LP2-Classifcation/main/LP2_Telco-churn-second-2000.csv"
+
+# Read data from the raw GitHub URL
+df_github = pd.read_csv(github_url)
+
+# Display GitHub data
+st.dataframe(df_github)
