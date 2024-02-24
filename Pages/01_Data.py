@@ -57,3 +57,9 @@ df_github = pd.read_csv(github_url)
 
 # Display GitHub data
 st.dataframe(df_github)
+
+# concantenate the two dataframes
+st.header('Dataframes Combined ')
+data_train = pd.concat([results, df_github])
+
+st.dataframe(data_train)
