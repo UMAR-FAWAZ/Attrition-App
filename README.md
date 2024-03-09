@@ -100,7 +100,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-![image](https://github.com/UMAR-FAWAZ/Attrition-App/blob/main/assets/visual.png)
+![Image](https://github.com/UMAR-FAWAZ/Attrition-App/blob/main/assets/visual.png)
 
 
 <!-- GETTING STARTED -->
