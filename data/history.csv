@@ -2,3 +2,5 @@ gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,Intern
 Male,Yes,Yes,Yes,1,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Electronic check,29,29,2024-03-07,Gradient Boosting Machines
 Male,Yes,Yes,Yes,1,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Electronic check,29,29,2024-03-07,Naive Bayes
 Female,No,Yes,No,1,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Electronic check,29,29,2024-03-07,Gradient Boosting Machines
+Female,No,Yes,No,4,No,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,Electronic check,29,29,2024-03-13,Gradient Boosting Machines
+Female,No,Yes,No,4,No,Yes,DSL,Yes,Yes,No,No,No,Yes,One year,Yes,Mailed check,29,29,2024-03-13,Naive Bayes

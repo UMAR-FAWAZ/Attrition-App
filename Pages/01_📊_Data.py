@@ -18,6 +18,8 @@ st.markdown(
         unsafe_allow_html=True,
 )
 
+
+
 # Get data from remote Database
 st.header('SQL Server Dataset')
  
@@ -37,6 +39,7 @@ def get_connection():
         + st.secrets["PASSWORD"]
     )
     return connection
+
 
 
 conn = get_connection()
@@ -62,64 +65,73 @@ def database_query(query):
 # # load saved data
 df_save = pd.read_csv('./data/telco_churn_3000.csv')
 
-# Define function to return all features
-@st.cache_data()
-def select_all_features():
-    
-      # Return all features
-    df = df_save       
-    return df 
+# Check if the user is authenticated
+if not st.session_state.get("authentication_status"):
+    st.info('Login from the Home page to use app')
+else: 
 
-#Define function to return only numeric features
-def select_numeric_features():
-    
-    # Select only numeric features
-    df_numeric =df_save.select_dtypes(include='number')  
-  
-    return df_numeric
-
-# Define function to return only categoric features
-def select_categoric_features():
-
-    #Query statement
-    query = "SELECT * FROM LP2_Telco_churn_first_3000"
-
-    # Select only categorical features
-    df_categoric =df_save.select_dtypes(include='object') 
-    
-    return df_categoric
-
-
-
-
-if __name__ == "__main__":
-
-    # Create columns for selection box and placeholder
-    col1,col2 = st.columns(2)
-
-    with col1:
-
-        # Selection box for choosing feature category
-        st.selectbox("Choose  Feature Category",
-                      options = ['All Features','Numeric Features','categoric Features'], key = 'selected_columns')
-
-    with col2:
-        pass
-    
-    # Check selected option and display corresponding data
-    if st.session_state['selected_columns'] =="All Features":
-        all_data= select_all_features()
-        st.dataframe(all_data)
-
-    if st.session_state['selected_columns'] == 'Numeric Features':
-        numeric_data = select_numeric_features()
-        st.dataframe(numeric_data)
-
-    if st.session_state['selected_columns'] == 'categoric Features':
-        categoric_data = select_categoric_features()
-        st.dataframe(categoric_data)
+    # Define function to return all features
+    @st.cache_data()
+    def select_all_features():
         
+        # Return all features
+        df = df_save       
+        return df 
+
+    #Define function to return only numeric features
+    def select_numeric_features():
+        
+        # Select only numeric features
+        df_numeric =df_save.select_dtypes(include='number')  
     
+        return df_numeric
+
+    # Define function to return only categoric features
+    def select_categoric_features():
+
+        #Query statement
+        query = "SELECT * FROM LP2_Telco_churn_first_3000"
+
+        # Select only categorical features
+        df_categoric =df_save.select_dtypes(include='object') 
+        
+        return df_categoric
+
+
+     
+    
+
+    if __name__ == "__main__":
+
+        # Create columns for selection box and placeholder
+        col1,col2 = st.columns(2)
+
+        with col1:
+
+            # Selection box for choosing feature category
+            st.selectbox("Choose  Feature Category",
+                        options = ['All Features','Numeric Features','categoric Features'], key = 'selected_columns')
+
+        with col2:
+            pass
+        
+        # Check selected option and display corresponding data
+        if st.session_state['selected_columns'] =="All Features":
+            all_data= select_all_features()
+            st.dataframe(all_data)
+
+        if st.session_state['selected_columns'] == 'Numeric Features':
+            numeric_data = select_numeric_features()
+            st.dataframe(numeric_data)
+
+        if st.session_state['selected_columns'] == 'categoric Features':
+            categoric_data = select_categoric_features()
+            st.dataframe(categoric_data)
+        
+
+   
+        
+        
 
 
 
