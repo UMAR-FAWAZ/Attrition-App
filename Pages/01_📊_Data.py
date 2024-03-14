@@ -5,6 +5,7 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 from dotenv import dotenv_values
+import streamlit_authenticator 
 
 # configure Data page
 st.set_page_config(
